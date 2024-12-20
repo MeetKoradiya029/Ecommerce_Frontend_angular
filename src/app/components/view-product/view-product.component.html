@@ -1,0 +1,489 @@
+<div>
+
+    <header>
+        <!-- Jumbotron -->
+        <div class="p-1 text-center bg-white border-bottom">
+            <div>
+                <div class="row">
+                    <!-- Left elements -->
+                    <div class="d-flex col-lg-2 col-sm-4 col-4 align-items-center">
+                        <a>
+                          <img width="60" height="60" style="
+                            padding: 10px;
+                            border-right: 1px solid #cdcdcd;" src="assets/images/ecommerce_logo_a.jpg" alt="logo">
+                        </a>
+                        <div class="d-flex flex-column" style="margin:0 10px;">
+                          <div>
+                            <p style="font-size: 30px; font-weight: bold;">Smart</p>
+                          </div>
+                          <div>
+                            <p style="color: rgb(252, 169, 46); font-size: 18px;">Shopping</p>
+                          </div>
+                        </div>
+                      </div>
+                    <!-- Left elements -->
+
+                    <!-- Center elements -->
+                    <div class="order-lg-last col-lg-10 col-sm-8 col-10" style="margin: auto;">
+                        <div class="d-flex float-end">
+                            @if (!isLoggedIn) {
+                                <a [routerLink]="['/login']" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
+                                  target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i>
+                                  <p class="d-none d-md-block mb-0">Sign in</p>
+                                </a>
+                            }
+                            <!-- <a class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i
+                      class="fas fa-heart m-1 me-md-2"></i>
+                    <p class="d-none d-md-block mb-0">Wishlist</p>
+                  </a> -->
+                            <a [routerLink]="['/cart']"
+                                class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
+                                    class="fas fa-shopping-cart m-1 me-md-2"></i>
+                                <p class="d-none d-md-block mb-0">My cart</p>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Center elements -->
+
+                    <!-- Right elements -->
+                    <!-- <div class="col-lg-5 col-md-12 col-12">
+                <div class="input-group">
+                  <input type="search" id="form1" class="form-control" placeholder="Search" />
+                  <button type="button" class="btn btn-primary">
+                    <i class="fas fa-search"></i>
+                  </button>
+                </div>
+              </div> -->
+
+                    <!-- Right elements -->
+                </div>
+            </div>
+        </div>
+        <!-- Jumbotron -->
+
+
+    </header>
+
+    <!-- style="background:rgb(236, 144, 144);" -->
+
+    <div class="container-fluid bg-white" style="width: 100wh;">
+        <div class="row m-1">
+            <div class="col-4">
+                <div>
+                    <div class="image-container d-flex align-items-center justify-content-center">
+                        <img style="width: 400px; height: 500px;"
+                            src="{{productDetailsObj?.images ? productDetailsObj?.images[0] : ''}}" alt="">
+                    </div>
+                    <div class="row g-1">
+                        <div class="col-6">
+                            <button class="btn btn-success mt-2 add-cart-btn w-100"
+                                (click)="addToCart(productDetailsObj)">Add To Cart</button>
+                        </div>
+                        <div class="col-6">
+                            <button class="btn btn-success mt-2 go-cart-btn w-100">Go to Cart</button>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="row">
+                    <div class="mb-1">
+                        <h1 class="product-title">
+                            <span>
+                                {{productDetailsObj?.name || "-"}}
+                            </span>
+                        </h1>
+                    </div>
+
+                    <div class="d-flex">
+                        <div class="text-muted ratings">
+                            <span>52,497 Ratings & 5,702 Reviews</span>
+                        </div>
+                        <span class="f-assured-img"><img height="21" src="assets/images/f_assured.png"></span>
+                    </div>
+
+                    <div>
+                        <div class="product-price-main-container">
+                            <div class="price-container">
+                                <div class="product-price-div">
+                                    {{productDetailsObj?.price | currency:'INR':'symbol':'1.2-2'}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="cPHDOP col-12-12">
+                        <div class="row delivery-address-row">
+                            <div class="col col-12-12">
+                                <div class="delivery-wrapper">
+                                    <div class="vRToqG">Delivery</div>
+                                    <div class="BvstzA">
+                                        <div class="_5zD2Em _1UqGlq">
+                                            <div class="EyTAyV uGNjfd"></div>
+                                            <div class="guihks">
+                                                <div class="Ir+XS5 H1broz"><svg width="12" height="12"
+                                                        viewBox="0 0 9 12" class="_5hV6Fd"
+                                                        xmlns="http://www.w3.org/2000/svg">
+                                                        <path fill="#2874f0" class="Z87Ib1"
+                                                            d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                            fill-rule="evenodd"></path>
+                                                    </svg>
+                                                    <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                            placeholder="Enter Delivery Pincode" type="text"
+                                                            maxlength="6" id="pincodeInputId" value=""></form>
+                                                    <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                            viewBox="25 25 50 50">
+                                                            <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50"
+                                                                r="10" fill="none" stroke-width="3"
+                                                                stroke-miterlimit="10">
+                                                            </circle>
+                                                        </svg></div><span class="i40dM4">Check<div
+                                                            class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                            <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                        </div></span>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="dYhUKY">
+                                    <div class="_2VIMRi">
+                                        <ul class="ALNptf">
+                                            <div class="nRBH83">
+                                                <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                        Tuesday</span><span class="TkX068">|</span><span
+                                                        class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                    <div class="EjOX7q"><span class="question">?</span></div>
+                                                </div>
+                                                <div class="m-cM89">if ordered before 6:27 PM</div>
+                                            </div>
+                                        </ul>
+                                    </div>
+                                    <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mt-3">
+                        <div class="description-div">
+                            <span class="desc mb-2">Description</span>
+                            <!-- <span>{{productDetailsObj?.description ||  "-"}}</span> -->
+                            <span>
+                                Zebronics is an IT & Gaming peripheral, Sound System, Mobile & Lifestyle Accessories &
+                                Surveillance Solutions. Zeb-County is a compact and handy portable speaker that comes
+                                with multi-connectivity options like wireless BT/USB/Micro SD and AUX. The speaker comes
+                                with a call function along with a built-in FM Radio too. For any warranty related issues
+                                Please contact zebronics Customer Support whatsapp at +919360942527 044-4000 0004</span>
+                        </div>
+                    </div>
+                    <!-- <div class="cPHDOP col-12-12">
+                    <div class="row delivery-address-row">
+                        <div class="col col-12-12">
+                            <div class="delivery-wrapper">
+                                <div class="vRToqG">Delivery</div>
+                                <div class="BvstzA">
+                                    <div class="_5zD2Em _1UqGlq">
+                                        <div class="EyTAyV uGNjfd"></div>
+                                        <div class="guihks">
+                                            <div class="Ir+XS5 H1broz"><svg width="12" height="12" viewBox="0 0 9 12"
+                                                    class="_5hV6Fd" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#2874f0" class="Z87Ib1"
+                                                        d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                        placeholder="Enter Delivery Pincode" type="text" maxlength="6"
+                                                        id="pincodeInputId" value=""></form>
+                                                <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                        viewBox="25 25 50 50">
+                                                        <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50" r="10"
+                                                            fill="none" stroke-width="3" stroke-miterlimit="10">
+                                                        </circle>
+                                                    </svg></div><span class="i40dM4">Check<div
+                                                        class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                        <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                    </div></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dYhUKY">
+                                <div class="_2VIMRi">
+                                    <ul class="ALNptf">
+                                        <div class="nRBH83">
+                                            <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                    Tuesday</span><span class="TkX068">|</span><span
+                                                    class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                <div class="EjOX7q"><span class="question">?</span></div>
+                                            </div>
+                                            <div class="m-cM89">if ordered before 6:27 PM</div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cPHDOP col-12-12">
+                    <div class="row delivery-address-row">
+                        <div class="col col-12-12">
+                            <div class="delivery-wrapper">
+                                <div class="vRToqG">Delivery</div>
+                                <div class="BvstzA">
+                                    <div class="_5zD2Em _1UqGlq">
+                                        <div class="EyTAyV uGNjfd"></div>
+                                        <div class="guihks">
+                                            <div class="Ir+XS5 H1broz"><svg width="12" height="12" viewBox="0 0 9 12"
+                                                    class="_5hV6Fd" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#2874f0" class="Z87Ib1"
+                                                        d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                        placeholder="Enter Delivery Pincode" type="text" maxlength="6"
+                                                        id="pincodeInputId" value=""></form>
+                                                <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                        viewBox="25 25 50 50">
+                                                        <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50" r="10"
+                                                            fill="none" stroke-width="3" stroke-miterlimit="10">
+                                                        </circle>
+                                                    </svg></div><span class="i40dM4">Check<div
+                                                        class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                        <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                    </div></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dYhUKY">
+                                <div class="_2VIMRi">
+                                    <ul class="ALNptf">
+                                        <div class="nRBH83">
+                                            <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                    Tuesday</span><span class="TkX068">|</span><span
+                                                    class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                <div class="EjOX7q"><span class="question">?</span></div>
+                                            </div>
+                                            <div class="m-cM89">if ordered before 6:27 PM</div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cPHDOP col-12-12">
+                    <div class="row delivery-address-row">
+                        <div class="col col-12-12">
+                            <div class="delivery-wrapper">
+                                <div class="vRToqG">Delivery</div>
+                                <div class="BvstzA">
+                                    <div class="_5zD2Em _1UqGlq">
+                                        <div class="EyTAyV uGNjfd"></div>
+                                        <div class="guihks">
+                                            <div class="Ir+XS5 H1broz"><svg width="12" height="12" viewBox="0 0 9 12"
+                                                    class="_5hV6Fd" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#2874f0" class="Z87Ib1"
+                                                        d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                        placeholder="Enter Delivery Pincode" type="text" maxlength="6"
+                                                        id="pincodeInputId" value=""></form>
+                                                <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                        viewBox="25 25 50 50">
+                                                        <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50" r="10"
+                                                            fill="none" stroke-width="3" stroke-miterlimit="10">
+                                                        </circle>
+                                                    </svg></div><span class="i40dM4">Check<div
+                                                        class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                        <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                    </div></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dYhUKY">
+                                <div class="_2VIMRi">
+                                    <ul class="ALNptf">
+                                        <div class="nRBH83">
+                                            <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                    Tuesday</span><span class="TkX068">|</span><span
+                                                    class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                <div class="EjOX7q"><span class="question">?</span></div>
+                                            </div>
+                                            <div class="m-cM89">if ordered before 6:27 PM</div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cPHDOP col-12-12">
+                    <div class="row delivery-address-row">
+                        <div class="col col-12-12">
+                            <div class="delivery-wrapper">
+                                <div class="vRToqG">Delivery</div>
+                                <div class="BvstzA">
+                                    <div class="_5zD2Em _1UqGlq">
+                                        <div class="EyTAyV uGNjfd"></div>
+                                        <div class="guihks">
+                                            <div class="Ir+XS5 H1broz"><svg width="12" height="12" viewBox="0 0 9 12"
+                                                    class="_5hV6Fd" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#2874f0" class="Z87Ib1"
+                                                        d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                        placeholder="Enter Delivery Pincode" type="text" maxlength="6"
+                                                        id="pincodeInputId" value=""></form>
+                                                <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                        viewBox="25 25 50 50">
+                                                        <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50" r="10"
+                                                            fill="none" stroke-width="3" stroke-miterlimit="10">
+                                                        </circle>
+                                                    </svg></div><span class="i40dM4">Check<div
+                                                        class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                        <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                    </div></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dYhUKY">
+                                <div class="_2VIMRi">
+                                    <ul class="ALNptf">
+                                        <div class="nRBH83">
+                                            <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                    Tuesday</span><span class="TkX068">|</span><span
+                                                    class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                <div class="EjOX7q"><span class="question">?</span></div>
+                                            </div>
+                                            <div class="m-cM89">if ordered before 6:27 PM</div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cPHDOP col-12-12">
+                    <div class="row delivery-address-row">
+                        <div class="col col-12-12">
+                            <div class="delivery-wrapper">
+                                <div class="vRToqG">Delivery</div>
+                                <div class="BvstzA">
+                                    <div class="_5zD2Em _1UqGlq">
+                                        <div class="EyTAyV uGNjfd"></div>
+                                        <div class="guihks">
+                                            <div class="Ir+XS5 H1broz"><svg width="12" height="12" viewBox="0 0 9 12"
+                                                    class="_5hV6Fd" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#2874f0" class="Z87Ib1"
+                                                        d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                        placeholder="Enter Delivery Pincode" type="text" maxlength="6"
+                                                        id="pincodeInputId" value=""></form>
+                                                <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                        viewBox="25 25 50 50">
+                                                        <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50" r="10"
+                                                            fill="none" stroke-width="3" stroke-miterlimit="10">
+                                                        </circle>
+                                                    </svg></div><span class="i40dM4">Check<div
+                                                        class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                        <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                    </div></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dYhUKY">
+                                <div class="_2VIMRi">
+                                    <ul class="ALNptf">
+                                        <div class="nRBH83">
+                                            <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                    Tuesday</span><span class="TkX068">|</span><span
+                                                    class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                <div class="EjOX7q"><span class="question">?</span></div>
+                                            </div>
+                                            <div class="m-cM89">if ordered before 6:27 PM</div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="cPHDOP col-12-12">
+                    <div class="row delivery-address-row">
+                        <div class="col col-12-12">
+                            <div class="delivery-wrapper">
+                                <div class="vRToqG">Delivery</div>
+                                <div class="BvstzA">
+                                    <div class="_5zD2Em _1UqGlq">
+                                        <div class="EyTAyV uGNjfd"></div>
+                                        <div class="guihks">
+                                            <div class="Ir+XS5 H1broz"><svg width="12" height="12" viewBox="0 0 9 12"
+                                                    class="_5hV6Fd" xmlns="http://www.w3.org/2000/svg">
+                                                    <path fill="#2874f0" class="Z87Ib1"
+                                                        d="M4.2 5.7c-.828 0-1.5-.672-1.5-1.5 0-.398.158-.78.44-1.06.28-.282.662-.44 1.06-.44.828 0 1.5.672 1.5 1.5 0 .398-.158.78-.44 1.06-.28.282-.662.44-1.06.44zm0-5.7C1.88 0 0 1.88 0 4.2 0 7.35 4.2 12 4.2 12s4.2-4.65 4.2-7.8C8.4 1.88 6.52 0 4.2 0z"
+                                                        fill-rule="evenodd"></path>
+                                                </svg>
+                                                <form autocomplete="off" class="lt4VIO"><input class="AFOXgu"
+                                                        placeholder="Enter Delivery Pincode" type="text" maxlength="6"
+                                                        id="pincodeInputId" value=""></form>
+                                                <div class="lK-0ST SC1gl7 uGNjfd"><svg class="dN-Hpt"
+                                                        viewBox="25 25 50 50">
+                                                        <circle stroke="#0057e7" class="lIbIfd" cx="50" cy="50" r="10"
+                                                            fill="none" stroke-width="3" stroke-miterlimit="10">
+                                                        </circle>
+                                                    </svg></div><span class="i40dM4">Check<div
+                                                        class="AEyO3k z5++mS _2SE1jd  TMNmtm uRvHUf lm5wS9 IjEfvK">
+                                                        <div class="V3Zflw QX54-Q _2qdHG2">Enter pincode</div>
+                                                    </div></span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="dYhUKY">
+                                <div class="_2VIMRi">
+                                    <ul class="ALNptf">
+                                        <div class="nRBH83">
+                                            <div class="hVvnXm">Delivery by<span class="Y8v7Fl">30 Apr,
+                                                    Tuesday</span><span class="TkX068">|</span><span
+                                                    class="hcf08j">Free</span><span class="Xksjzr gflScT">₹40</span>
+                                                <div class="EjOX7q"><span class="question">?</span></div>
+                                            </div>
+                                            <div class="m-cM89">if ordered before 6:27 PM</div>
+                                        </div>
+                                    </ul>
+                                </div>
+                                <div class="YBL3PP"><span class="sBWZ-k">View Details</span></div>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+                </div>
+                <div class="row"></div>
+                <div class="row"></div>
+            </div>
+        </div>
+    </div>
+
+</div>

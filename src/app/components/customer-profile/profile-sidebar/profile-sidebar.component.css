@@ -1,0 +1,43 @@
+.nav-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 2.1rem;
+    background: white;
+    /* margin: 5px; */
+    color: black;
+}
+
+.nav-item.active { 
+    color: rgb(255, 145, 0);
+    background: rgb(235, 243, 255);
+}
+
+.nav-item.active a { 
+    color: rgb(0, 81, 255);
+}
+
+.active {
+    color: aqua;
+}
+
+.nav-item a {
+    cursor: pointer;
+    color: black;
+}
+
+.sidebar-wrapper{
+    background: white;
+    min-height: 90vh;
+}
+
+.user-info {
+    height: 50px;
+    margin-bottom: 20px;
+    padding: 0 10px;
+    
+}
+
+.divider {
+    margin: 10px 3px;
+}

@@ -1,0 +1,156 @@
+<header>
+    <!-- Jumbotron -->
+    <div class="p-1 text-center bg-white border-bottom">
+      <div>
+        <div class="row">
+          <!-- Left elements -->
+          <div class="d-flex col-lg-2 col-sm-4 col-4 align-items-center">
+            <a>
+              <img width="60" height="60" style="
+                padding: 10px;
+                border-right: 1px solid #cdcdcd;" src="assets/images/ecommerce_logo_a.jpg" alt="logo">
+            </a>
+            <div class="d-flex flex-column" style="margin:0 10px;">
+              <div>
+                <p style="font-size: 30px; font-weight: bold;">Smart</p>
+              </div>
+              <div>
+                <p style="color: rgb(252, 169, 46); font-size: 18px;">Shopping</p>
+              </div>
+            </div>
+          </div>
+          <!-- Left elements -->
+  
+          <!-- Center elements -->
+          <div class="order-lg-last col-lg-10 col-sm-8 col-10" style="margin: auto;">
+            <div class="d-flex float-end">
+              @if (!isLoggedIn) {
+              <a [routerLink]="['/login']" class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center"
+                target="_blank"> <i class="fas fa-user-alt m-1 me-md-2"></i>
+                <p class="d-none d-md-block mb-0">Sign in</p>
+              </a>
+              }
+              <!-- <a class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center" target="_blank"> <i
+                  class="fas fa-heart m-1 me-md-2"></i>
+                <p class="d-none d-md-block mb-0">Wishlist</p>
+              </a> -->
+              <a [routerLink]="['/cart']" class="border rounded py-1 px-3 nav-link d-flex align-items-center"> <i
+                  class="fas fa-shopping-cart m-1 me-md-2"></i>
+                <p class="d-none d-md-block mb-0">My cart</p>
+              </a>
+              <div class="profile-box ml-15">
+                <button class="bg-transparent border-0" type="button" id="profile" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <div class="profile-info">
+                    <div class="info">
+                      <div class="image">
+                        <img style="width: 46px; height: 46px;" src="assets/images/profile/profile-image.png" alt="" />
+                      </div>
+                      <div style="width: max-content;">
+                        <h6 class="fw-500">Customer</h6>
+                        <p>Customer</p>
+                      </div>
+                    </div>
+                  </div>
+                </button>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profile">
+                  <li>
+                    <div class="author-info flex items-center !p-1">
+                      <!-- <div class="image">
+                        <img src="assets/images/profile/profile-image.png" alt="image">
+                      </div>
+                      <div class="content">
+                        <h4 class="text-sm">Adam Joe</h4>
+                        <a class="text-black/40 dark:text-white/40 hover:text-black dark:hover:text-white text-xs"
+                          href="#">Email&#64;gmail.com</a>
+                      </div> -->
+                    </div>
+                  </li>
+                  <!-- <li class="divider"></li> -->
+                  <li>
+                    <a [routerLink]="['/profile']">
+                      <i class="lni lni-user"></i> View Profile
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0">
+                      <i class="lni lni-alarm"></i> Notifications
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#0"> <i class="lni lni-inbox"></i> Messages </a>
+                  </li>
+                  <li>
+                    <a href="#0"> <i class="lni lni-cog"></i> Settings </a>
+                  </li>
+                  <li class="divider"></li>
+                  <li>
+                    <a style="cursor: pointer;" (click)="logout()"> <i class="lni lni-exit"></i> Sign Out </a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <!-- Center elements -->
+  
+          <!-- Right elements -->
+          <!-- <div class="col-lg-5 col-md-12 col-12">
+            <div class="input-group">
+              <input type="search" id="form1" class="form-control" placeholder="Search" />
+              <button type="button" class="btn btn-primary">
+                <i class="fas fa-search"></i>
+              </button>
+            </div>
+          </div> -->
+  
+          <!-- Right elements -->
+        </div>
+      </div>
+    </div>
+    <!-- Jumbotron -->
+  
+  
+  </header>
+
+<div class="container-fluid">
+
+    <!-- <div class="row-conatainer p-2">
+        <div class="row g-3 m-2">
+            <div class="col-2">
+                <app-profile-sidebar></app-profile-sidebar>
+            </div>
+            <div class="col-10">
+                <router-outlet></router-outlet>
+            </div>
+        </div>
+    </div> -->
+    <div class="m-2">
+      <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="home-tab" routerLink="/profile" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" aria-controls="home-tab-pane" aria-selected="true">Personal Information</a>
+        </li>
+        <li class="nav-item" role="presentation">
+          <a class="nav-link" id="address-tab" routerLink="/profile/addresses" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }" aria-controls="address-tab-pane" aria-selected="false">Address Information</a>
+        </li>
+      </ul>
+  
+      <div class="tab-content" id="myTabContent">
+        <router-outlet></router-outlet>
+      </div>
+    </div>
+   
+    
+    
+    <!-- <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="home-tab-pane" role="tabpanel" aria-labelledby="home-tab" tabindex="0">
+        
+        <router-outlet></router-outlet>
+      </div>
+      
+      <div class="tab-pane fade" id="address-tab-pane" role="tabpanel" aria-labelledby="address-tab" tabindex="0">
+       
+      </div>
+    </div> -->
+    
+    
+</div>

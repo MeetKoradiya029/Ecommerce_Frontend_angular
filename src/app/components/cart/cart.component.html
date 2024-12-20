@@ -1,0 +1,159 @@
+<!-- shopping-cart -->
+
+<div class="conatiner">
+
+    <header>
+        <!-- Jumbotron -->
+        <div class="p-1 text-center bg-white border-bottom">
+            <div>
+                <div class="row">
+                    <!-- Left elements -->
+                    <div class="d-flex col-lg-2 col-sm-4 col-4 align-items-center">
+                        <a>
+                            <img width="60" height="60" style="
+                            padding: 10px;
+                            border-right: 1px solid #cdcdcd;" src="assets/images/ecommerce_logo_a.jpg" alt="logo">
+                        </a>
+                        <div class="d-flex flex-column" style="margin:0 10px;">
+                            <div>
+                                <p style="font-size: 30px; font-weight: bold;">Smart</p>
+                            </div>
+                            <div>
+                                <p style="color: rgb(252, 169, 46); font-size: 18px;">Shopping</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Left elements -->
+
+                    <!-- Center elements -->
+                    <div class="order-lg-last col-lg-5 col-sm-8 col-8" style="margin: auto;">
+                        <div class="d-flex float-end">
+                            <!-- <a [routerLink]="['']"
+                                class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center">
+                                <i class="fa-solid fa-angle-left"></i>
+                                <p class="d-none d-md-block mb-0">Back</p>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <section class="py-4">
+        <div class="m-2">
+            <div class="row g-3">
+                <div class="col-lg-8">
+                    <div class="card border-0">
+                        <div class="card-header" style="background: #3e3e3e;
+                                                    color: white;">
+                            Shopping Cart
+                        </div>
+                        <div class="card-body">
+                            <!-- @for (item of cartItems; track $index) {
+                            <div class="row mb-3 border-bottom">
+                                <div class="col-md-3">
+                                    <img src="{{ item?.images ? item?.images[0] : 'assets/images/products/product-mini-1.jpg' }}"
+                                        class="img-fluid">
+                                </div>
+                                <div class="col-md-9">
+                                    <h5>{{ item.name }}</h5>
+                                    <p>{{ item.price | currency:'INR':'symbol':'1.2-2' }}</p>
+                                    <div class="input-group" style="width: 150px;">
+                                        <div class="input-group-prepend">
+                                            <button class="btn btn-secondary qty-btn" type="button"
+                                                (click)="decreaseQuantity(item)">-</button>
+                                        </div>
+                                        <input type="text" class="form-control" style="margin: 0 10px;"
+                                            [(ngModel)]="item.quantity" readonly>
+                                        <div class="input-group-append">
+                                            <button class="btn btn-secondary qty-btn" type="button"
+                                                (click)="increaseQuantity(item)">+</button>
+                                        </div>
+                                    </div>
+                                    <button class="btn btn-sm btn-outline-danger mt-2 mb-2"
+                                        (click)="removeItem(item)">Remove</button>
+                                </div>
+                            </div>
+                            } -->
+                            <div class="table-container m-2">
+                                <table class="table bg-white">
+                                    <thead>
+                                        <tr>
+                                            <th scope="col">Image</th>
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Price</th>
+                                            <th scope="col">Quantity</th>
+                                            <th scope="col" class="text-center">Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @for (item of cartItems; track $index) {
+                                        <tr>
+                                            <td>
+                                                <div>
+                                                    <img src="{{ item?.images ? item?.images[0] : 'assets/images/products/product-mini-1.jpg' }}"
+                                                        class="img-fluid">
+                                                </div>
+                                            </td>
+                                            <td>
+                                                {{ item.name }}
+                                            </td>
+                                            <td>{{ item.price | currency:'INR':'symbol':'1.2-2' }}</td>
+                                            <td>
+                                                <div class="quantity-container">
+                                                    <div class="input-group-prepend">
+                                                        <a class="qty-btn" type="button"
+                                                            (click)="decreaseQuantity(item)"><i
+                                                                class="fa-solid fa-minus"
+                                                                style="color: red;"></i></a>
+                                                    </div>
+                                                    <span class="quantity-input">{{item?.quantity}}</span>
+                                                    <div class="input-group-append">
+                                                        <a class="qty-btn" type="button"
+                                                            (click)="increaseQuantity(item)"><i class="fa-solid fa-plus"
+                                                                style="color: #ff8800;"></i></a>
+                                                    </div>
+                                                </div>
+                                            </td>
+                                            <td class="text-center">
+                                                <a class="m-1" style="cursor: pointer;"
+                                                    (click)="removeItem(item)"><i class="fa-solid fa-circle-xmark" style="color: red;"></i></a>
+                                            </td>
+                                        </tr>
+                                        }
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- <div class="card-footer bg-white">
+                            <div class="d-flex w-100 align-items-end justify-content-end">
+                                <button class="btn btn-primary place-order-btn" [routerLink]="['/checkout']">PLACE
+                                    ORDER</button>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+                <div class="col-lg-4">
+                    <div class="card border-0">
+                        <div class="card-header" style="background: #3e3e3e;
+                                                    color: white;">
+                            Cart Summary
+                        </div>
+                        <div class="card-body">
+                            <p>Total Items: {{ getTotalItems() }}</p>
+                            <p>Total Price: {{ getTotalPrice() | currency:'INR':'symbol':'1.2-2' }}</p>
+                            <!-- <button class="btn btn-primary btn-block">Checkout</button> -->
+                        </div>
+                        <div class="card-footer bg-white">
+                            <div class="d-flex w-100 align-items-end justify-content-center">
+                                <button class="btn btn-primary place-order-btn" [routerLink]="['/checkout']">Place
+                                    Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

@@ -1,0 +1,278 @@
+
+
+<div class="col main">
+    <div class="address-heading">
+        <span style="font-size: 20px; margin: 10px; font-weight: 300;">Manage Addresses</span>
+    </div>
+    @if (!showAddress) {
+    <div class="card add-new-address-btn m-2">
+        <div>
+            <span style="cursor:pointer;" (click)="showAddressForm()"><i class="fa-solid fa-plus"
+                    style="margin-right: 20px;"></i>ADD A NEW
+                ADDRESS</span>
+        </div>
+    </div>
+    }
+
+    @if (showAddress) {
+    <ng-container>
+        <form [formGroup]="addressForm" autocomplete="off" (ngSubmit)="submitAddress(addressForm)"
+            class="row justify-content-md-start m-2">
+            <div class="card form-card col-12">
+                <div class="card-body">
+                    <div class="add-address-heading">
+                        <span style="color: rgb(0, 81, 255); font-size: 15px; font-weight: 600; margin-bottom:10px">ADD
+                            A NEW ADDRESS</span>
+                    </div>
+                    <div class="col" style="margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="Name" formControlName="name" />
+                                @if (addressForm.controls['name'].invalid &&
+                                (addressForm.controls['name'].dirty || addressForm.controls['name'].touched))
+                                {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter name</p>
+                                </div>
+                                }
+
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="10-digit mobile number"
+                                    formControlName="phone_number" />
+                                <div class="error-message"></div>
+                                @if (addressForm.controls['phone_number'].invalid &&
+                                (addressForm.controls['phone_number'].dirty
+                                || addressForm.controls['phone_number'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter 10 digit Mobile Number</p>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="Pincode"
+                                    formControlName="pincode" />
+                                @if (addressForm.controls['pincode'].invalid &&
+                                (addressForm.controls['pincode'].dirty || addressForm.controls['pincode'].touched))
+                                {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter pincode</p>
+                                </div>
+                                }
+
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="Locality"
+                                    formControlName="locality" />
+                                <div class="error-message"></div>
+                                @if (addressForm.controls['locality'].invalid && (addressForm.controls['locality'].dirty
+                                || addressForm.controls['locality'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter locality</p>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col" style="margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="form-group col">
+                                <textarea class="form-control" placeholder="Address (Area and Street)"
+                                    formControlName="address"></textarea>
+                                <div class="error-message"></div>
+                                @if (addressForm.controls['address'].invalid &&
+                                (addressForm.controls['address'].dirty ||
+                                addressForm.controls['address'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter address</p>
+                                </div>
+                                }
+                            </div>
+
+                        </div>
+                    </div>
+
+                    <div class="col" style="margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="City" formControlName="city" />
+                                @if (addressForm.controls['city'].invalid &&
+                                (addressForm.controls['city'].dirty || addressForm.controls['city'].touched))
+                                {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter city</p>
+                                </div>
+                                }
+
+                            </div>
+
+                            <div class="form-group col">
+                                <ng-select [items]="statesArray" bindLabel="name" bindValue="name"
+                                    formControlName="state" placeholder="-- Select State --">
+                                </ng-select>
+                                <div class="error-message"></div>
+                                @if (addressForm.controls['state'].invalid && (addressForm.controls['state'].dirty
+                                || addressForm.controls['state'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please select state</p>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col" style="margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="Landmark (Optional)"
+                                    formControlName="landmark" />
+                            </div>
+
+                            <div class="form-group col">
+                                <input type="text" class="form-control" placeholder="Alternate mobile number (Optional)"
+                                    formControlName="alternate_phone" />
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="col" style="margin-bottom: 20px;">
+                        <div class="row">
+                            <div class="form-group col-6">
+                                <label for="addressType" style="margin-bottom: 10px;">Address Type</label>
+                                <ng-select [items]="addressTypeArray" bindLabel="label" bindValue="label"
+                                    formControlName="locationTypeTag" placeholder="-- Select Address Type --">
+                                </ng-select>
+                                @if (addressForm.controls['locationTypeTag'].invalid &&
+                                (addressForm.controls['locationTypeTag'].dirty ||
+                                addressForm.controls['locationTypeTag'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please select address type</p>
+                                </div>
+                                }
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-2">
+                            <button type="submit" class="btn save-address-btn btn-primary w-100">Save</button>
+                        </div>
+                        <div class="col-2">
+                            <button type="button" class="btn cancel-address-btn btn-secondary w-100"
+                                (click)="cancelAddressForm()">Cancel</button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </ng-container>
+    }
+
+
+    <div class="row m-2">
+        <div class="col-12 p-0">
+            <div class="card address-list-card">
+                @for (item of addressList; track $index) {
+                    <div>
+                        <div class="card-body border-bottom">
+                            <div class="row d-flex justify-content-between mb-2">
+                                <div class="col-2"><span class="badge adddress-tag">{{item?.locationTypeTag || "-"}}</span></div>
+                                <div class="col-1">
+                                    <div class="d-flex justify-content-end">
+                                        <span style="cursor: pointer;" (click)="getAndPatchFormData(item.id)">
+                                            <i class="fa-solid fa-pen-to-square"></i>
+                                        </span>
+                                        <!-- <span style="cursor: pointer;" (click)="getAndPatchFormData(item.id)">
+                                            <i class="fa-solid fa-trash"></i>
+                                        </span> -->
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row mb-2">
+                                <div class="col">
+                                    <span style="font-weight: 600;">{{item?.name || "-"}}</span>
+                                    <span style="font-weight: 600; margin-left: 20px;">{{item?.phone_number || "-"}}</span>
+                                </div>
+                            </div>
+        
+                            <div class="row">
+                                <div class="col">
+                                    <span>{{item?.address || "-"}},</span>
+                                    <span>&nbsp;{{item?.city || "-"}},</span>
+                                    <span>&nbsp;{{item?.state || "-"}}-</span>
+                                    <span style="font-weight: 600;">&nbsp;{{item?.pincode || "-"}}</span>
+                                </div>
+                            </div>
+        
+                        </div>
+                    </div>
+                }
+                <!-- <div class="card-body border-bottom">
+                    <div class="row d-flex justify-content-between mb-2">
+                        <div class="col-2"><span class="badge adddress-tag">Home</span></div>
+                        <div class="col-1">
+                            <div class="d-flex justify-content-end">
+                                <span style="cursor: pointer;">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row mb-2">
+                        <div class="col">
+                            <span style="font-weight: 600;">Koradiya Meet</span>
+                            <span style="font-weight: 600; margin-left: 20px;">7284021006</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <span>Shivam park, Santkrupa society, Keshod,</span>
+                            <span>&nbsp;Junagadh,</span>
+                            <span>&nbsp;Gujarat-</span>
+                            <span style="font-weight: 600;">&nbsp;362220</span>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="card-body border-bottom">
+                    <div class="row d-flex justify-content-between">
+                        <div class="col-2"><span class="badge adddress-tag">Home</span></div>
+                        <div class="col-1">
+                            <div class="d-flex justify-content-end">
+                                <span style="cursor: pointer;">
+                                    <i class="fa-solid fa-pen-to-square"></i>
+                                </span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col">
+                            <span style="font-weight: 600;">Koradiya Meet</span>
+                            <span style="font-weight: 600; margin-left: 20px;">7284021006</span>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col">
+                            <span>Shivam park, Santkrupa society, Keshod,</span>
+                            <span>&nbsp;Junagadh,</span>
+                            <span>&nbsp;Gujarat-</span>
+                            <span style="font-weight: 600;">&nbsp;362220</span>
+                        </div>
+                    </div>
+
+                </div> -->
+            </div>
+        </div>
+    </div>
+
+</div>

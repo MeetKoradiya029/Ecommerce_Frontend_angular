@@ -1,0 +1,25 @@
+
+<ng-container>
+
+    @if (!isLoading) {
+        <router-outlet></router-outlet>
+    }
+   
+    @if (isLoading) {
+        <div class="loader-container">
+            <div class="loader-logo">
+                <div class="sk-chase">
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                    <div class="sk-chase-dot"></div>
+                </div>
+                {{"Loading..."}}
+            </div>
+        </div>
+    }
+    
+</ng-container>
+

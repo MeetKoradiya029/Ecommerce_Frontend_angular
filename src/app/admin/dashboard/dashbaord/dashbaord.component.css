@@ -1,0 +1,46 @@
+.nav-item {
+    cursor: pointer;
+}
+
+.nav-item:hover{
+    color: blue;
+}
+
+.active {
+    /* Define styles for the active state */
+    font-weight: bold;
+    color: blue;
+    /* Add any other styles you want to apply */
+  }
+
+.dropdown-item {
+    cursor: pointer;
+}
+
+.sidebar-nav {
+    background: black;
+}
+
+.add-form-card {
+    border: none !important;
+
+}
+
+::ng-deep p-dialog .p-dialog-header {
+    color: white;
+    padding: 10px;
+    background: #565656;
+}
+
+::ng-deep p-dialog .p-dialog-header .p-dialog-header-icons button timesicon {
+    color: white !important;
+}
+
+::ng-deep p-dialog .p-dialog-header .p-dialog-header-icons button:hover {
+    background: unset !important;
+}
+
+::ng-deep p-dialog .p-dialog-content {
+    overflow-y: auto;
+    overflow-x: none;
+}

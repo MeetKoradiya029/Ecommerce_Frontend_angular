@@ -1,0 +1,162 @@
+
+
+
+header {
+    position: sticky;
+    top: 0;
+    z-index: 99999;
+}
+
+
+.image-container {
+    border: 1px solid rgb(199, 199, 199);
+    max-width: 575px;
+    max-height: 600px;
+    
+}
+
+
+.add-cart-btn {
+    border-radius: 2px;
+    height: 4rem;
+    background: #ff9f00;
+    border: 0px;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+}
+
+.go-cart-btn {
+    border-radius: 2px;
+    height: 4rem;
+    background: #fb641b;
+    border: 0px;
+    color: white;
+    font-size: large;
+    font-weight: 700;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, .2);
+}
+
+.product-price-div {
+    font-size: 28px;
+    font-weight: 500;
+}
+
+.product-title {
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.ratings {
+    font-size: 14px;
+}
+
+.f-assured-img {
+    margin-left: 10px;
+}
+
+.delivery-address-row {
+    display: flex;
+    margin-top: 24px;
+}
+
+.delivery-wrapper {
+    display: flex;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.xO1qhs .vRToqG {
+    color: #878787;
+    width: 110px;
+    padding-right: 10px;
+    font-weight: 500;
+}
+
+._1UqGlq {
+    width: 234px;
+}
+
+._5zD2Em .uGNjfd {
+    display: none !important;
+}
+
+._5zD2Em .EyTAyV {
+    background-color: transparent;
+    position: fixed;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+
+._5zD2Em .guihks {
+    position: relative;
+    border-radius: 2px;
+}
+
+._5zD2Em .guihks .Ir\+XS5 {
+    padding: 0 0 4px;
+    border: none;
+    border-bottom: 2px solid #2874f0;
+    font-weight: 500;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+._5zD2Em .guihks .Ir\+XS5 .lt4VIO {
+    display: inline-block;
+    line-height: 25px;
+}
+
+._5zD2Em .guihks .Ir\+XS5 .lt4VIO .AFOXgu {
+    font-weight: 500;
+    font-size: 14px;
+    border: none;
+    outline: none;
+    width: 144px;
+    padding-left: 6px;
+    vertical-align: middle;
+}
+
+._5zD2Em .SC1gl7 {
+    display: inline-block;
+    width: 25px;
+    vertical-align: middle;
+}
+
+._5zD2Em .guihks .Ir\+XS5 .i40dM4 {
+    font-weight: 500;
+    cursor: pointer;
+    font-size: 14px;
+    color: #2874f0;
+    margin-left: auto;
+    position: relative;
+}
+
+._5zD2Em .guihks .IjEfvK {
+    padding: 8px;
+    font-size: 12px;
+    z-index: inherit;
+    display: inline-block;
+}
+
+.TMNmtm.uRvHUf {
+    left: calc(100% + 16px);
+}
+
+._5zD2Em .guihks .Ir\+XS5 ._2qdHG2 {
+    display: inline;
+}
+
+.TMNmtm .QX54-Q {
+    white-space: nowrap;
+}

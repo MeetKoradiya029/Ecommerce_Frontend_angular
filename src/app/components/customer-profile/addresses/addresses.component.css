@@ -1,0 +1,56 @@
+
+.main {
+    background: white;
+    height: 100vh !important;
+}
+  
+
+.form-card {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 0;
+}
+
+.text-danger {
+    font-size: 12px;
+}
+
+.add-new-address-btn {
+    padding: 0 10px;
+    height: 60px;
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 0;
+    display: flex;
+    justify-content: center;
+}
+
+
+.save-address-btn {
+    border: none;
+    border-radius: 0;
+    height: 2.7rem;
+}
+
+.cancel-address-btn {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 0;
+    background:unset;
+    color: black;
+    height: 2.7rem;
+}
+
+/* .cancel-address-btn:hover {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 0px;
+} */
+
+
+
+.address-list-card {
+    border: 1px solid rgb(214, 214, 214);
+    border-radius: 0;
+}
+.adddress-tag {
+    border-radius: 2px;
+    color: grey;
+    background: rgb(233, 233, 233);
+}

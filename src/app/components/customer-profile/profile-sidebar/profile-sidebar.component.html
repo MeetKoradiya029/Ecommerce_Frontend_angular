@@ -1,0 +1,14 @@
+<div class="col">
+    <div class="sidebar-wrapper">
+        <ul class="nav-list">
+            <li class="user-info">Hello, User !</li>
+            <hr class="divider" />
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+                <a [routerLink]="['/profile']">Personal Information</a>
+            </li>
+            <li class="nav-item" [routerLinkActive]="['active']" [routerLinkActiveOptions]="{ exact: true }">
+                <a [routerLink]="['addresses']">Address Information</a>
+            </li>
+        </ul>
+    </div>
+</div>

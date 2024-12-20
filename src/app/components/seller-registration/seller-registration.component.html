@@ -1,0 +1,285 @@
+<!-- seller-registration.component.html -->
+<div class="card m-2">
+    <p-tabView [(activeIndex)]="activeIndex">
+        <p-tabPanel header="Personal Information" [headerStyle]="{'pointer-events':'none'}">
+            <form [formGroup]="personalInfoForm" autocomplete="off" (ngSubmit)="onSubmitPersonalInfo(personalInfoForm)"
+                class="row justify-content-md-start m-2">
+                <div class="card form-card col-12">
+                    <div class="card-body">
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="Seller Name"
+                                        formControlName="Seller_Name" />
+                                    @if (personalInfoForm.controls['Seller_Name'].invalid &&
+                                    (personalInfoForm.controls['Seller_Name'].dirty ||
+                                    personalInfoForm.controls['Seller_Name'].touched))
+                                    {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter seller name</p>
+                                    </div>
+                                    }
+
+                                </div>
+
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="10-digit mobile number"
+                                        formControlName="Phone_Number" />
+                                    <div class="error-message"></div>
+                                    @if (personalInfoForm.controls['Phone_Number'].invalid &&
+                                    (personalInfoForm.controls['Phone_Number'].dirty
+                                    || personalInfoForm.controls['Phone_Number'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter 10 digit Mobile Number</p>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="Email"
+                                        formControlName="Email" />
+                                    @if (personalInfoForm.controls['Email'].invalid &&
+                                    (personalInfoForm.controls['Email'].dirty ||
+                                    personalInfoForm.controls['Email'].touched))
+                                    {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Email</p>
+                                    </div>
+                                    }
+
+                                </div>
+
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="Password"
+                                        formControlName="Password" />
+                                    <div class="error-message"></div>
+                                    @if (personalInfoForm.controls['Password'].invalid &&
+                                    (personalInfoForm.controls['Password'].dirty
+                                    || personalInfoForm.controls['Password'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Password</p>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input class="form-control" placeholder="Address (Area and Street)"
+                                        formControlName="Address">
+                                    <div class="error-message"></div>
+                                    @if (personalInfoForm.controls['Address'].invalid &&
+                                    (personalInfoForm.controls['Address'].dirty ||
+                                    personalInfoForm.controls['Address'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Address</p>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="City" formControlName="City" />
+                                    @if (personalInfoForm.controls['City'].invalid &&
+                                    (personalInfoForm.controls['City'].dirty ||
+                                    personalInfoForm.controls['City'].touched))
+                                    {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter City</p>
+                                    </div>
+                                    }
+
+                                </div>
+
+                                <div class="form-group col">
+                                    <ng-select [items]="statesArray" bindLabel="name" bindValue="name"
+                                        formControlName="State" placeholder="-- Select State --">
+                                    </ng-select>
+                                    <div class="error-message"></div>
+                                    @if (personalInfoForm.controls['State'].invalid &&
+                                    (personalInfoForm.controls['State'].dirty
+                                    || personalInfoForm.controls['State'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please select State</p>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="Postal Code"
+                                        formControlName="Postal_Code" />
+                                    @if (personalInfoForm.controls['Postal_Code'].invalid &&
+                                    (personalInfoForm.controls['Postal_Code'].dirty
+                                    || personalInfoForm.controls['Postal_Code'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please select Postal Code</p>
+                                    </div>
+                                    }
+                                </div>
+
+                                <div class="form-group col">
+                                    <ng-select [items]="countryArray" bindLabel="name" bindValue="name"
+                                        formControlName="Country" placeholder="-- Select Country --">
+                                    </ng-select>
+                                    @if (personalInfoForm.controls['Country'].invalid &&
+                                    (personalInfoForm.controls['Country'].dirty
+                                    || personalInfoForm.controls['Country'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please select Country</p>
+                                    </div>
+                                    }
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-2">
+                                <button type="submit" class="btn save-address-btn btn-primary w-100 d-flex justify-content-between align-items-center">
+                                    <span>
+                                        Save & Next
+                                    </span>
+                                    @if (isLoading) {
+                                        <span>
+                                            <div class="loader">
+    
+                                            </div>
+                                        </span> 
+                                    }
+                                </button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn cancel-address-btn btn-secondary w-100">Cancel</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </p-tabPanel>
+        <p-tabPanel header="Business Information" [headerStyle]="{'pointer-events':'none'}">
+            <form [formGroup]="businessInfoForm" autocomplete="off" (ngSubmit)="onSubmitBusinessInfo(businessInfoForm)"
+                class="row justify-content-md-start m-2">
+                <div class="card form-card col-8">
+                    <div class="card-body">
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input type="text" class="form-control" placeholder="Business Name"
+                                        formControlName="Business_Name" />
+                                    @if (businessInfoForm.controls['Business_Name'].invalid &&
+                                    (businessInfoForm.controls['Business_Name'].dirty ||
+                                    businessInfoForm.controls['Business_Name'].touched))
+                                    {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter business name</p>
+                                    </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input class="form-control" placeholder="Business Phone Number"
+                                        formControlName="Business_Phone">
+                                    <div class="error-message"></div>
+                                    @if (businessInfoForm.controls['Business_Phone'].invalid &&
+                                    (businessInfoForm.controls['Business_Phone'].dirty ||
+                                    businessInfoForm.controls['Business_Phone'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Business Phone number</p>
+                                    </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <input class="form-control" placeholder="Business Email"
+                                        formControlName="Business_Email">
+                                    <div class="error-message"></div>
+                                    @if (businessInfoForm.controls['Business_Email'].invalid &&
+                                    (businessInfoForm.controls['Business_Email'].dirty ||
+                                    businessInfoForm.controls['Business_Email'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Business Email</p>
+                                    </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <textarea class="form-control" placeholder="Business Address"
+                                        formControlName="Business_Address"></textarea>
+                                    <div class="error-message"></div>
+                                    @if (businessInfoForm.controls['Business_Address'].invalid &&
+                                    (businessInfoForm.controls['Business_Address'].dirty ||
+                                    businessInfoForm.controls['Business_Address'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Business Address</p>
+                                    </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+                        <div class="col" style="margin-bottom: 20px;">
+                            <div class="row">
+                                <div class="form-group col">
+                                    <textarea class="form-control" placeholder="Business Description"
+                                        formControlName="Description"></textarea>
+                                    <div class="error-message"></div>
+                                    @if (businessInfoForm.controls['Description'].invalid &&
+                                    (businessInfoForm.controls['Description'].dirty ||
+                                    businessInfoForm.controls['Description'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter Business Description</p>
+                                    </div>
+                                    }
+                                </div>
+
+                            </div>
+                        </div>
+
+
+
+                        <div class="row">
+                            <div class="col-2">
+                                <button type="submit" class="btn save-address-btn btn-primary w-100"
+                                    (click)="goToPreviousTab()">Prev</button>
+                            </div>
+                            <div class="col-2">
+                                <button type="button" class="btn cancel-address-btn btn-secondary w-100">Cancel</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </form>
+        </p-tabPanel>
+    </p-tabView>
+</div>

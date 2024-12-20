@@ -1,0 +1,105 @@
+
+
+
+<div class="col main">
+    <form [formGroup]="updateUserForm" autocomplete="off"
+        class="row mx-2">
+        <div class="col-md-6 col-sm-12 card form-card">
+            <div class="pt-2">
+                <div class="col" style="margin-bottom: 20px;">
+                    <div class="row" style="margin-left: -10px; margin-bottom: 20px;">
+                        <div class="d-flex">
+                            <div><span style="font-weight: 600;">Personal Information</span></div>
+                            <div><a style="margin-left: 15px; color: blue; cursor: pointer;" (click)="editPersonalInfo()">{{ isEditingPersonalInfo ? 'Cancel': 'Edit'}}</a></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <input [readOnly]="!isEditingPersonalInfo" type="text" class="form-control" placeholder="Enter first name"
+                                formControlName="first_name" ValidateFormControl />
+                            @if (updateUserForm.controls['first_name'].invalid &&
+                            (updateUserForm.controls['first_name'].dirty || updateUserForm.controls['first_name'].touched))
+                            {
+                            <div class="error-message">
+                                <p class="text-danger">* Please enter first name</p>
+                            </div>
+                            }
+
+                        </div>
+
+                        <div class="form-group col">
+                            <input [readOnly]="!isEditingPersonalInfo" type="text" class="form-control" placeholder="Enter Last name"
+                                formControlName="last_name" ValidateFormControl />
+                            <div class="error-message"></div>
+                            @if (updateUserForm.controls['last_name'].invalid && (updateUserForm.controls['last_name'].dirty
+                            || updateUserForm.controls['last_name'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please enter last name</p>
+                            </div>
+                            }
+                        </div>
+                        @if (isEditingPersonalInfo) {
+                            <div class="col-2">
+                                <button class="btn btn-primary" (click)="submitForm('PersonalInfo')">Save</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col" style="margin-bottom: 20px;">
+                    <div class="row" style="margin-left: -10px; margin-bottom: 20px;">
+                        <div class="d-flex">
+                            <div><span style="font-weight: 600;">Mobile Number</span></div>
+                            <div><a style="margin-left: 15px; color: blue; cursor: pointer;" (click)="togglePhoneNumberInfoEditing()" >{{ isEditingPhoneNumber ? 'Cancel': 'Edit'}}</a></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <input [readOnly]="!isEditingPhoneNumber" type="text" class="form-control" placeholder="Enter Phone Number"
+                                formControlName="phone_number" ValidateFormControl />
+                            <div class="error-message"></div>
+                            @if (updateUserForm.controls['phone_number'].invalid &&
+                            (updateUserForm.controls['phone_number'].dirty ||
+                            updateUserForm.controls['phone_number'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please enter phone number</p>
+                            </div>
+                            }
+                        </div>
+                        @if (isEditingPhoneNumber) {
+                            <div class="col-2">
+                                <button class="btn btn-primary" (click)="submitForm('MobileNumber')">Save</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                <div class="col" style="margin-bottom: 20px;">
+                    <div class="row" style="margin-left: -10px; margin-bottom: 20px;">
+                        <div class="d-flex">
+                            <div><span style="font-weight: 600;">Email</span></div>
+                            <div><a style="margin-left: 15px; color: blue; cursor: pointer;" (click)="toggleEmailEditing()" >{{ isEditingEmail ? 'Cancel': 'Edit'}}</a></div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-group col">
+                            <input [readOnly]="!isEditingEmail" type="text" class="form-control" placeholder="Email" formControlName="email"
+                                ValidateFormControl />
+                            <div class="error-message"></div>
+                            @if (updateUserForm.controls['email'].invalid && (updateUserForm.controls['email'].dirty ||
+                            updateUserForm.controls['email'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please enter email</p>
+                            </div>
+                            }
+                        </div>
+                        @if (isEditingEmail) {
+                            <div class="col-2">
+                                <button class="btn btn-primary" (click)="submitForm('Email')" >Save</button>
+                            </div>
+                        }
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </form>
+</div>

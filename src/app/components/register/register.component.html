@@ -1,0 +1,155 @@
+<div class="container-fluid main">
+    <div class="d-flex justify-content-center align-items-center">
+        <form [formGroup]="registerForm" (ngSubmit)="submitForm(registerForm)" autocomplete="off"
+            class="row mx-auto w-100 justify-content-center">
+            <div class="col-lg-4 col-md-3 col-sm-12 card m-2">
+                <div class="card-body">
+                    <h3 class="text-center">Registration</h3>
+                    <hr class="mx-2" />
+                    <div class="row">
+                        <div class="form-group col-6">
+                            <label for="firstName">First Name</label>
+                            <input type="text" class="form-control" placeholder="Enter first name"
+                                formControlName="first_name" ValidateFormControl />
+                                @if (registerForm.controls['first_name'].invalid && (registerForm.controls['first_name'].dirty || registerForm.controls['first_name'].touched)) {
+                                    <div class="error-message">
+                                        <p class="text-danger">* Please enter first name</p>
+                                    </div>
+                                }
+                            
+                        </div>
+
+                        <div class="form-group col-6">
+                            <label for="lastName">Last Name</label>
+                            <input type="text" class="form-control" placeholder="Enter Last name"
+                                formControlName="last_name" ValidateFormControl />
+                            <div class="error-message"></div>
+                            @if (registerForm.controls['last_name'].invalid && (registerForm.controls['last_name'].dirty || registerForm.controls['last_name'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter last name</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+                    <div class="row">
+                        <label for="phone">Phone Number</label>
+                        <div class="form-group col-3">
+                            <input type="text" class="form-control" [readOnly]="true" formControlName="dial_code"
+                                placeholder="+91" ValidateFormControl />
+                            <div class="error-message"></div>
+                        </div>
+                        <div class="form-group col-9">
+
+                            <input type="text" class="form-control" placeholder="Enter Phone Number"
+                                formControlName="phone_number" ValidateFormControl />
+                            <div class="error-message"></div>
+                            @if (registerForm.controls['phone_number'].invalid && (registerForm.controls['phone_number'].dirty || registerForm.controls['phone_number'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter phone number</p>
+                                </div>
+                            }
+                        </div>
+                    </div>
+
+
+
+                    <div class="form-group">
+                        <label for="inputEmail">Email</label>
+                        <input type="text" class="form-control" placeholder="Email" formControlName="email"
+                            ValidateFormControl />
+                        <div class="error-message"></div>
+                        @if (registerForm.controls['email'].invalid && (registerForm.controls['email'].dirty || registerForm.controls['email'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please enter email</p>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group">
+                        <label for="role">Register As</label>
+                        <ng-select [items]="userTypesArray" bindLabel="label" bindValue="value" formControlName="user_type" placeholder="-- Select Role --">
+                        </ng-select>
+                        @if (registerForm.controls['user_type'].invalid && (registerForm.controls['user_type'].dirty || registerForm.controls['user_type'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please select your role</p>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group col-xs-12 col-12 form-group">
+                        <label for="birthdate">Date Of Birth</label>
+                        <input type="text" placeholder="-- Select Birth Date --" class="form-control" bsDatepicker
+                            [bsValue]="bsValue" formControlName="date_of_birth"
+                            [bsConfig]="{ isAnimated: true, dateInputFormat: 'DD-MM-YYYY' }"/>
+                            @if (registerForm.controls['date_of_birth'].invalid && (registerForm.controls['date_of_birth'].dirty || registerForm.controls['date_of_birth'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please select date of birth</p>
+                            </div>
+                        }
+                    </div>
+
+
+                    <div class="form-group password-container">
+                        <label for="inputPassword">Password</label>
+                        <input [type]="passwordInputType" class=" form-control input-lg" placeholder="Enter password"
+                            autocomplete="new-password" formControlName="password" />
+                            @if (registerForm.controls['password'].invalid && (registerForm.controls['password'].dirty || registerForm.controls['password'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter password</p>
+                                </div>
+                            }
+                        <div class="eye-icon-wrapper translate-middle password-input " type="click"
+                            (click)="handlePasswordShowClick()">
+                            @if (registerForm.controls['password'].value && passwordInputType === 'text') {
+
+                            <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                            }
+                            @if (registerForm.controls['password'].value && passwordInputType ===
+                            'password') {
+                            <i class="fa-solid fa-eye-slash" aria-hidden="false"></i>
+                            }
+                        </div>
+                    </div>
+
+
+
+                    <button type="submit" class="btn btn-primary mt-1 w-100">
+                        Create Account
+                    </button>
+
+                    <div class="text-center mt-2">
+                        <h5 class="mb-1 h6" style="font-weight: 700;">Already have an account ?</h5>
+                        <a class="text-primary" [routerLink]="['/login']">
+                            Login Here
+                        </a>
+                    </div>
+
+                    <div class="text-center">
+                        <span class="my-4 font-weight-600 or-line"><em>OR</em></span>
+                        <h5 class="mb-1 h6" style="font-weight: 700;">Want to be a seller ?</h5>
+                        <a class="text-primary" [routerLink]="['/login']">
+                            Register Here
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+
+
+<style>
+    .form-control:focus {
+        box-shadow: none;
+        border-radius: 15px;
+        border-color: #5da0e2;
+        /* Optional: Set the border color for focused state */
+    }
+
+    .form-control {
+        margin-bottom: 10px !important;
+    }
+</style>

@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <header>
+        <div class="p-1 text-center bg-white border-bottom">
+            <div>
+                <div class="row">
+                    <div class="d-flex col-lg-2 col-sm-4 col-4 align-items-center">
+                        <a>
+                            <img width="60" height="60" style="
+                            padding: 10px;
+                            border-right: 1px solid #cdcdcd;" src="assets/images/ecommerce_logo_a.jpg" alt="logo">
+                        </a>
+                        <div class="d-flex flex-column" style="margin:0 10px;">
+                            <div>
+                                <p style="font-size: 30px; font-weight: bold;">Smart</p>
+                            </div>
+                            <div>
+                                <p style="color: rgb(252, 169, 46); font-size: 18px;">Shopping</p>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="order-lg-last col-lg-5 col-sm-8 col-8" style="margin: auto;">
+                        <div class="d-flex float-end">
+                            <!-- <a [routerLink]="['']"
+                                class="me-1 border rounded py-1 px-3 nav-link d-flex align-items-center">
+                                <i class="fa-solid fa-angle-left"></i>
+                                <p class="d-none d-md-block mb-0">Back</p>
+                            </a> -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="row m-2">
+        <div class="col-12 p-0">
+            <div class="card address-list-card">
+                <div class="card-header">DELIVERY ADDRESS</div>
+                @for (item of addressList; track $index) {
+                <div>
+                    <div class="card-body border-bottom">
+                        <div class="row d-flex mb-2">
+                            <div class="col-1">
+                                <div class="form-check d-flex align-items-center justify-content-center">
+                                    <input class="form-check-input" type="radio" name="flexRadioDefault"
+                                        id="flexRadioDefault1_{{$index}}" [checked]="item.id == selectedAddress.id"
+                                        (change)="getSelectedAddress($event, item)">
+                                </div>
+                            </div>
+                            <div class="col-11">
+                                <div class="row g-1">
+                                    <div class="col">
+                                        <span style="font-weight: 600;">{{item?.name || "-"}}</span>
+                                        <span style="font-weight: 600; margin-left: 10px;">{{item?.phone_number ||
+                                            "-"}}</span>
+                                        <span class="badge adddress-tag"
+                                            style="margin-left: 10px;">{{item?.locationTypeTag || "-"}}</span>
+                                    </div>
+                                </div>
+                                <div class="row mb-2">
+                                    <!-- <div class="col">
+                                            <span style="font-weight: 600;">{{item?.name || "-"}}</span>
+                                            <span style="font-weight: 600; margin-left: 20px;">{{item?.phone_number || "-"}}</span>
+                                        </div> -->
+                                </div>
+
+                                <div class="row mb-2">
+                                    <div class="col">
+                                        <span>{{item?.address || "-"}},</span>
+                                        <span>&nbsp;{{item?.city || "-"}},</span>
+                                        <span>&nbsp;{{item?.state || "-"}}-</span>
+                                        <span style="font-weight: 600;">&nbsp;{{item?.pincode || "-"}}</span>
+                                    </div>
+                                </div>
+
+                                <div class="row">
+                                    <div class="col">
+                                        <button class="btn save-address-btn btn-primary">DELIVER HERE</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>

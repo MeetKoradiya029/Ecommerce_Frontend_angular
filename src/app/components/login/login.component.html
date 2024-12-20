@@ -1,0 +1,91 @@
+<div class="container-fluid main">
+    <div class="d-flex justify-content-center align-items-center" style="height: 100vh;">
+        <form [formGroup]="loginForm" (ngSubmit)="submitForm(loginForm)" autocomplete="off" class="row mx-auto w-100 justify-content-center">
+            <div class="col-md-3 col-sm-12 card">
+                <div class="card-body">
+                    <div class="brand text-center d-block m-b-30 m-t-20">
+                        <!-- <img [src]="" alt="logo" style="width: 150px;"> -->
+                    </div>
+
+                    <h3 class="text-center">Get Started</h3>
+                    <p class="text-center m-b-20 text-muted">Enter Login Information.</p>
+
+
+                    <div class="form-group">
+                        <label for="inputEmail" class="sr-only">Email</label>
+                        <input type="text" class="form-control" placeholder="Email" formControlName="email"
+                            ValidateFormControl />
+                        @if (loginForm.controls['email'].invalid && (loginForm.controls['email'].dirty || loginForm.controls['email'].touched)) {
+                            <div class="error-message">
+                                <p class="text-danger">* Please enter email</p>
+                            </div>
+                        }
+                    </div>
+
+                    <div class="form-group password-container">
+                        <label for="inputPassword" class="sr-only">Password</label>
+                        <input [type]="passwordInputType" class=" form-control input-lg" placeholder="Enter password"
+                            autocomplete="new-password" formControlName="password" />
+                            @if (loginForm.controls['password'].invalid && (loginForm.controls['password'].dirty || loginForm.controls['password'].touched)) {
+                                <div class="error-message">
+                                    <p class="text-danger">* Please enter password</p>
+                                </div>
+                            }
+                        <div class="eye-icon-wrapper translate-middle password-input " type="click"
+                            (click)="handlePasswordShowClick()">
+                            @if (loginForm.controls['password'].value && passwordInputType === 'text') {
+
+                            <i class="fa-solid fa-eye" aria-hidden="true"></i>
+                            }
+                            @if (loginForm.controls['password'].value && passwordInputType === 'password') {
+                            <i class="fa-solid fa-eye-slash" aria-hidden="false"></i>
+                            }
+                        </div>
+                        
+                    </div>
+
+
+                    <div class="checkbox m-b-10 m-t-20">
+                        <!-- <div class="custom-control custom-checkbox checkbox-primary form-check">
+                <input type="checkbox" (change)="handleRememberMe($event.target.checked)" class="custom-control-input"
+                  id="stateCheck1" [checked]="rememberMe">
+                <label class="custom-control-label" for="stateCheck1">
+                  {{labelDict['LABEL_REMEMBER_ME'] }}
+                </label>
+              </div> -->
+                        <a routerLink="forgot-password" class="float-end">
+                            Forgot Password ?
+                        </a>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary w-100 mt-2">
+                        Sign In
+                    </button>
+
+                    <div class="text-center">
+                        <span class="my-4 font-weight-600 or-line"><em>OR</em></span>
+                        <h5 class="mb-1 h6" style="font-weight: 400;">Don't have an account ?</h5>
+                        <a class="text-primary" [routerLink]="['/register']">
+                            Register
+                        </a>
+                    </div>
+
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+
+
+<style>
+    .form-control:focus {
+        box-shadow: none;
+        border-radius: 15px;
+        border-color: #5da0e2;
+        /* Optional: Set the border color for focused state */
+    }
+
+    .form-control {
+        margin-bottom: 10px !important;
+    }
+</style>
